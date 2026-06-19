@@ -137,6 +137,147 @@ The application follows a three-layer architecture:
 - Android device with 4GB+ RAM (recommended)
 - 2-3GB free storage for model download
 
+Open in Android Studio, sync Gradle, connect a device, and click Run.
+
+On first launch, the app downloads the Gemma 4 model (~2-3GB). After that, go completely offline forever.
+### 🔒 Privacy
+
+| Principle | Implementation |
+|:---|:---|
+| Zero data collection | No data ever leaves your device |
+| Encryption at rest | AES-GCM via Android Keystore |
+| No accounts | No sign-up required |
+| No analytics | No tracking of any kind |
+| User control | Delete all data from settings |
+
+All data remains on your device:
+
+- Encrypted SQLite (AES-GCM)
+- User profile, chat history, XP, badges, progress
+- Study notes, flashcards
+- All inference happens locally with Gemma 4 + LiteRT
+- No cloud processing
+
+
+### 🧪 Testing
+
+**Diagnosis:** Launch app, answer 10 questions, dashboard shows your index.
+
+**AI Chat:** Navigate to Chat, ask any academic question, Gemma 4 responds offline.
+
+**Explore Hub:** Try Handwriting Canvas, Focus Timer, or Mood Tracker.
+
+
+### 📚 References
+
+- Paiva, J. (2025). *The AI Middle Powers: Gen AI Adoption in Higher Education across the Indian Subcontinent, Latin America and the Caribbean, and Europe*. Doctoral Thesis, University of Vigo.
+- Pinto, A. S., Abreu, A., Cota, M. P., & Paiva, J. (2025). *The Technology Acceptance Model (TAM): A MASEM Approach*. ICITED25, Springer.
+- Pinto, A. S., Abreu, A., Costa, E., Cota, M. P., & Paiva, J. (2025). *Exploring DeepSeek Adoption in Higher Education in Bangladesh*. Q1/Q2 Journal.
+
+
+### 🤝 Contributing
+
+Contributions welcome. See CONTRIBUTING.md
+
+
+### 📄 License
+
+MIT License — see LICENSE file for details.
+
+
+### 🙏 Acknowledgments
+
+- Google DeepMind for Gemma 4
+- Google Android Team for LiteRT
+- All 3,310 students and 83 faculty participants
+
+
+### 🔗 Links
+
+- Doctoral Research: https://github.com/your-username/thesis
+- Documentation: https://github.com/your-username/offline-ai-tutor/wiki
+- Issues: https://github.com/your-username/offline-ai-tutor/issues
+
+
+---
+
+**Built with ❤️ for learners everywhere.**
+
+> *"Education is the most powerful weapon which you can use to change the world."* — Nelson Mandela
+### Building APK
+
+```bash
+./gradlew assembleDebug
+./gradlew assembleRelease
+
+📂 Project Structure
+text
+app/
+├── src/main/java/com/myapp/
+│   ├── MainActivity.kt
+│   ├── MainApplication.kt
+│   ├── di/
+│   │   └── AppModule.kt
+│   ├── data/
+│   │   ├── UserProfile.kt
+│   │   ├── ContentRepository.kt
+│   │   ├── local/
+│   │   │   ├── Database.kt
+│   │   │   ├── Entities.kt
+│   │   │   └── Dao.kt
+│   │   └── repository/
+│   │       └── UserProfileRepository.kt
+│   ├── ml/
+│   │   ├── Gemma4Engine.kt
+│   │   ├── LanguageDetector.kt
+│   │   ├── FastTextLanguageDetector.kt
+│   │   ├── ModelDownloadManager.kt
+│   │   └── Recommender.kt
+│   ├── ui/
+│   │   ├── navigation/
+│   │   │   └── NavGraph.kt
+│   │   ├── welcome/
+│   │   │   ├── WelcomeScreen.kt
+│   │   │   └── WelcomeViewModel.kt
+│   │   ├── diagnosis/
+│   │   │   ├── DiagnosisScreen.kt
+│   │   │   └── DiagnosisViewModel.kt
+│   │   ├── dashboard/
+│   │   │   ├── DashboardScreen.kt
+│   │   │   └── DashboardViewModel.kt
+│   │   ├── chat/
+│   │   │   ├── ChatScreen.kt
+│   │   │   └── ChatViewModel.kt
+│   │   ├── explore/
+│   │   │   └── ExploreScreen.kt
+│   │   ├── canvas/
+│   │   │   └── CanvasScreen.kt
+│   │   ├── timer/
+│   │   │   └── TimerScreen.kt
+│   │   ├── mood/
+│   │   │   ├── MoodScreen.kt
+│   │   │   └── MoodViewModel.kt
+│   │   ├── notes/
+│   │   │   ├── NotesScreen.kt
+│   │   │   └── NotesViewModel.kt
+│   │   ├── flashcards/
+│   │   │   ├── FlashcardsScreen.kt
+│   │   │   └── FlashcardsViewModel.kt
+│   │   └── profile/
+│   │       ├── ProfileScreen.kt
+│   │       └── ProfileViewModel.kt
+│   └── utils/
+│       ├── Constants.kt
+│       ├── Security.kt
+│       ├── Gamification.kt
+│       └── LocaleHelper.kt
+├── src/main/assets/
+│   ├── gemma_4_4bit.tflite
+│   ├── ensemble_model.tflite
+│   └── lid.176.bin
+└── build.gradle.kts
+
+
 ### Installation
 
 ```bash
